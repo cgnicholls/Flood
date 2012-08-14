@@ -1,4 +1,4 @@
-package swap.model.grid;
+package flood.model.grid;
 
 public class Grid {
 	private Panel[] _panels;
