@@ -21,11 +21,20 @@ public class Panel {
 	}
 
 	/**
+	 * Returns the cells array.
+	 * 
+	 * @return
+	 */
+	public int[][] getCells() {
+		return _cells;
+	}
+
+	/**
 	 * Returns the number of cells on one side of the panel.
 	 * 
 	 * @return
 	 */
-	public int getPanelSize() {
+	public int getSize() {
 		return _panelSize;
 	}
 }
