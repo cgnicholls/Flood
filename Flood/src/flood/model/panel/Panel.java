@@ -1,4 +1,4 @@
-package flood.model.grid;
+package flood.model.panel;
 
 public class Panel {
 	private int[][] _cells;

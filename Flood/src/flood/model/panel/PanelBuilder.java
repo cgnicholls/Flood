@@ -1,4 +1,5 @@
-package flood.model.grid;
+package flood.model.panel;
+
 
 /**
  * A factory to build a Panel.

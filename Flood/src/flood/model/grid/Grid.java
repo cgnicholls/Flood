@@ -1,5 +1,7 @@
 package flood.model.grid;
 
+import flood.model.panel.Panel;
+
 public class Grid {
 	private Panel[][] _panels;
 	private int _panelSize;

@@ -1,5 +1,7 @@
 package flood.model.grid;
 
+import flood.model.panel.Panel;
+
 public class GridBuilder {
 
 	public Grid build(final Panel[][] panels) {
