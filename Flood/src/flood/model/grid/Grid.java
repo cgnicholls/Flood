@@ -1,17 +1,12 @@
 package flood.model.grid;
 
-import flood.model.panel.Panel;
-
 public class Grid {
-	private Panel[][] _panels;
+	private int[][] _cells;
 	private int _panelSize;
-	private int _numPanelsPerSide;
 
-	public Grid(final int panelSize, final int numPanelsPerSide,
-			final Panel[][] panels) {
+	public Grid(final int[][] cells, final int panelSize) {
+		_cells = cells;
 		_panelSize = panelSize;
-		_numPanelsPerSide = numPanelsPerSide;
-		_panels = panels;
 	}
 
 	/**
@@ -22,18 +17,22 @@ public class Grid {
 	 * @return
 	 */
 	public int getCell(final int i, final int j) {
-		int pi = (int) i / _panelSize;
-		int pj = (int) i / _panelSize;
-		int celli = i % _panelSize;
-		int cellj = j % _panelSize;
-		Panel panel = _panels[pi][pj];
-		return panel.getCell(celli, cellj);
+		return _cells[i][j];
+	}
+
+	/**
+	 * Returns the number of cells on a side.
+	 * 
+	 * @return
+	 */
+	public int getSize() {
+		return _cells.length;
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		int numCellsPerSide = _panelSize * _numPanelsPerSide;
+		int numCellsPerSide = _cells.length;
 		for (int i = 0; i < numCellsPerSide; i++) {
 			for (int j = 0; j < numCellsPerSide; j++) {
 				sb.append(getCell(i, j));
