@@ -25,7 +25,7 @@ public class ArrayAbsorber {
 		absorb(iStart, jStart, _cells[iStart][jStart], colourToAbsorb);
 	}
 
-	public void absorb(final int i, final int j, final int regionColour,
+	protected void absorb(final int i, final int j, final int regionColour,
 			final int colourToAbsorb) {
 		if (outOfBounds(i, j)) {
 			return;
