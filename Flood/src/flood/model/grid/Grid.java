@@ -29,6 +29,10 @@ public class Grid {
 		return _cells.length;
 	}
 
+	public int[][] getCells() {
+		return _cells;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
