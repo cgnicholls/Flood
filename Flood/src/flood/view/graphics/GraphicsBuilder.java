@@ -13,19 +13,35 @@ public class GraphicsBuilder {
 
 	private GridPanel gridPanel;
 
+	JFrame frame;
+
 	public void initializeGraphics() {
 
-		JFrame frame = new JFrame();
+		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(300, 350);
+		frame.setSize(300, 200);
 		frame.setVisible(true);
 
-		gridPanel = new GridPanel(2);
+		gridPanel = new GridPanel(3);
 
 		JButton newGameButton = new JButton("New Game");
+		newGameButton.addActionListener(new NewGameButtonListener());
 
 		frame.getContentPane().add(BorderLayout.CENTER, gridPanel);
 		frame.getContentPane().add(BorderLayout.NORTH, newGameButton);
+
+		int xCells = 3;
+		int[][] cells = new int[xCells][xCells];
+		for (int i = 0; i < xCells; i++) {
+			for (int j = 0; j < xCells; j++) {
+				int col = (int) (Math.random() * 6);
+				cells[i][j] = col;
+			}
+		}
+
+		gridPanel.setArray(cells);
+
+		frame.repaint();
 	}
 
 	class NewGameButtonListener implements ActionListener {

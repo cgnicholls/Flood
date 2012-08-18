@@ -7,16 +7,18 @@ import javax.swing.JPanel;
 
 public class GridPanel extends JPanel {
 
-	private final int[][] _cells;
+	private int[][] _cells;
 	private final int _gridSize;
 
-	private enum Colours {
-		RED, BLUE, GREEN
-	};
+	public Color[] colorArray = { Color.blue, Color.red, Color.yellow, Color.green, Color.pink };
 
 	public GridPanel(int gridSize) {
 		_cells = new int[gridSize][gridSize];
 		_gridSize = gridSize;
+	}
+
+	public void setArray(int[][] cells) {
+		_cells = cells;
 	}
 
 	@Override
@@ -30,20 +32,25 @@ public class GridPanel extends JPanel {
 
 		for (int i = 0; i < _gridSize; i++) {
 
-			for (int j = 0; i < _gridSize; j++) {
+			for (int j = 0; j < _gridSize; j++) {
 				int cell = _cells[i][j];
-				g.setColor(GetColour(cell));
 
+				Color c;
+				if (cell >= 0 && cell < colorArray.length) {
+					c = colorArray[cell];
+				} else {
+					c = Color.white;
+				}
+				g.setColor(c);
+
+				int xStart = cellSize * i;
+				int yStart = cellSize * j;
+
+				g.fillRect(xStart, yStart, cellSize, cellSize);
 			}
 
 		}
 
-	}
-
-	public Color GetColour(int enumVal) {
-		Color c = Color.blue;
-
-		return c;
 	}
 
 }

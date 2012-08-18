@@ -1,10 +1,13 @@
 package flood.view;
 
+import flood.view.graphics.GraphicsBuilder;
+
 public class Test {
 
-	public void go() {
-		System.out.println("Chris is OK");
+	public static void main(String[] args) {
 
+		GraphicsBuilder gB = new GraphicsBuilder();
+		gB.initializeGraphics();
 	}
 
 }
