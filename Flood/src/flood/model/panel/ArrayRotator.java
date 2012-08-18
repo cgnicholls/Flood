@@ -3,8 +3,8 @@ package flood.model.panel;
 public class ArrayRotator {
 
 	/**
-	 * Returns a new array containing the elements of the old array rotated by
-	 * 90 degrees anticlockwise.
+	 * Returns a new array containing the elements of the old array rotated by 90
+	 * degrees anticlockwise.
 	 * 
 	 * @param array
 	 * @return

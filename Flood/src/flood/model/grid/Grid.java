@@ -1,8 +1,8 @@
 package flood.model.grid;
 
 public class Grid {
-	private int[][] _cells;
-	private int _panelSize;
+	private final int[][] _cells;
+	private final int _panelSize;
 
 	public Grid(final int[][] cells, final int panelSize) {
 		_cells = cells;
@@ -34,8 +34,7 @@ public class Grid {
 	 * @param playerColour
 	 * @return
 	 */
-	protected boolean cellConnectsToPlayerRegion(int i, int j, int[][] cells,
-			int playerColour) {
+	protected boolean cellConnectsToPlayerRegion(int i, int j, int[][] cells, int playerColour) {
 		if (cells[i - 1][j] == playerColour) {
 			return true;
 		} else if (cells[i + 1][j] == playerColour) {
