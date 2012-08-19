@@ -2,7 +2,6 @@ package flood.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -10,11 +9,16 @@ public class GridPanel extends JPanel {
 
 	private int[][] _cells;
 	private int _gridSize;
+	private int _cellSize;
 
 	public Color[] colorArray = { Color.blue, Color.red, Color.yellow, Color.green, Color.pink, Color.orange };
 
+	public int getCellSize() {
+		return _cellSize;
+	}
+
 	public void setColorArray(Color p1Color, Color p2Color) {
-		ArrayList<Color> toCheck = colorArrayToArrayList(colorArray);
+		Color[] toCheck = colorArray.clone();
 
 		// Set first two values to player's colors
 		colorArray[0] = p1Color;
@@ -27,23 +31,6 @@ public class GridPanel extends JPanel {
 				nextIndex++;
 			}
 		}
-	}
-
-	public Color[] arrayListToColorArray(ArrayList<Color> arrayList) {
-		int size = arrayList.size();
-		Color[] array = new Color[size];
-		for (int i = 0; i < size; i++) {
-			array[i] = arrayList.get(i);
-		}
-		return array;
-	}
-
-	public ArrayList<Color> colorArrayToArrayList(Color[] array) {
-		ArrayList<Color> arrayList = new ArrayList<Color>();
-		for (Color c : array) {
-			arrayList.add(c);
-		}
-		return arrayList;
 	}
 
 	public GridPanel(int gridSize) {
@@ -63,7 +50,7 @@ public class GridPanel extends JPanel {
 		int width = this.getWidth();
 
 		int gridDim = Math.min(height, width);
-		int cellSize = gridDim / _gridSize;
+		_cellSize = gridDim / _gridSize;
 
 		for (int i = 0; i < _gridSize; i++) {
 
@@ -78,10 +65,10 @@ public class GridPanel extends JPanel {
 				}
 				g.setColor(c);
 
-				int xStart = cellSize * i;
-				int yStart = cellSize * j;
+				int xStart = _cellSize * i;
+				int yStart = _cellSize * j;
 
-				g.fillRect(xStart, yStart, cellSize, cellSize);
+				g.fillRect(xStart, yStart, _cellSize, _cellSize);
 			}
 
 		}
