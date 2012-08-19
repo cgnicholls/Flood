@@ -2,7 +2,6 @@ package flood.view;
 
 import java.awt.BorderLayout;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import flood.model.grid.Grid;
@@ -30,9 +29,8 @@ public class GameBuilder {
 	private void initialiseGame(final Game game, final GridPanel gridPanel) {
 		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		game.setSize(300, 200);
-		game.setVisible(true);
 
 		game.getContentPane().add(BorderLayout.CENTER, gridPanel);
-		game.getContentPane().add(BorderLayout.WEST, new JButton("TEST"));
+		game.setVisible(true);
 	}
 }
