@@ -47,18 +47,23 @@ public class Grid {
 		return false;
 	}
 
+	/**
+	 * Returns whether or not the cells array has an ith row and a jth column.
+	 * 
+	 * @param i
+	 * @param j
+	 * @param cells
+	 * @return
+	 */
 	protected boolean cellExistsInArray(int i, int j, int[][] cells) {
 		if (cells == null) {
 			return false;
 		}
-		int width = cells.length;
-		if (width == 0) {
-			return false;
-		}
-		int height = cells[0].length;
+		int height = cells.length;
 		if (i < 0 || i >= height) {
 			return false;
 		}
+		int width = cells[0].length;
 		if (j < 0 || j >= width) {
 			return false;
 		}
@@ -85,10 +90,18 @@ public class Grid {
 		return _cells.length;
 	}
 
+	/**
+	 * Returns the cells array.
+	 * 
+	 * @return
+	 */
 	public int[][] getCells() {
 		return _cells;
 	}
 
+	/**
+	 * Returns a String representation of the Grid.
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
@@ -104,7 +117,7 @@ public class Grid {
 	}
 
 	/**
-	 * Set the cell at row i, col j
+	 * Set the cell at row i, column j to value c.
 	 * 
 	 * @param i
 	 * @param j
