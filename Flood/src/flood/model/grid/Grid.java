@@ -2,11 +2,11 @@ package flood.model.grid;
 
 public class Grid {
 	private final int[][] _cells;
-	private final int _panelSize;
+	private final int _blockSize;
 
-	public Grid(final int[][] cells, final int panelSize) {
+	public Grid(final int[][] cells, final int blockSize) {
 		_cells = cells;
-		_panelSize = panelSize;
+		_blockSize = blockSize;
 	}
 
 	/**
@@ -101,5 +101,16 @@ public class Grid {
 			sb.append("\n");
 		}
 		return sb.toString();
+	}
+
+	/**
+	 * Set the cell at row i, col j
+	 * 
+	 * @param i
+	 * @param j
+	 * @param c
+	 */
+	public void setCell(int i, int j, int c) {
+		_cells[i][j] = c;
 	}
 }

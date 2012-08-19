@@ -1,13 +1,14 @@
 package flood.view;
 
-import flood.view.graphics.GraphicsBuilder;
 
 public class Test {
 
 	public static void main(String[] args) {
 
-		GraphicsBuilder gB = new GraphicsBuilder();
-		gB.initializeGraphics();
+		GameBuilder gameBuilder = new GameBuilder();
+		Game game = gameBuilder.build(2, 3);
+		game.start();
+		game.repaint();
 	}
 
 }

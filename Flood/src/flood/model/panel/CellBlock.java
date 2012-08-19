@@ -1,10 +1,10 @@
 package flood.model.panel;
 
-public class Panel {
+public class CellBlock {
 	private int[][] _cells;
 	private int _panelSize;
 
-	public Panel(final int[][] cells, final int panelSize) {
+	public CellBlock(final int[][] cells, final int panelSize) {
 		_cells = cells;
 		_panelSize = panelSize;
 	}
