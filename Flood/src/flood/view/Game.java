@@ -32,9 +32,7 @@ public class Game extends JFrame {
 	 */
 	public void start() {
 		initialiseGrid();
-		System.out.println(_grid.toString());
 		_gridPanel.setArray(_grid.getCells());
-		System.out.println(_gridPanel);
 	}
 
 	// public void run() {
