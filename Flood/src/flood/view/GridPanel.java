@@ -2,15 +2,49 @@ package flood.view;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
 public class GridPanel extends JPanel {
 
 	private int[][] _cells;
-	private final int _gridSize;
+	private int _gridSize;
 
-	public Color[] colorArray = { Color.blue, Color.red, Color.yellow, Color.green, Color.pink };
+	public Color[] colorArray = { Color.blue, Color.red, Color.yellow, Color.green, Color.pink, Color.orange };
+
+	public void setColorArray(Color p1Color, Color p2Color) {
+		ArrayList<Color> toCheck = colorArrayToArrayList(colorArray);
+
+		// Set first two values to player's colors
+		colorArray[0] = p1Color;
+		colorArray[1] = p2Color;
+
+		int nextIndex = 2;
+		for (Color c : toCheck) {
+			if (c != p1Color & c != p2Color) {
+				colorArray[nextIndex] = c;
+				nextIndex++;
+			}
+		}
+	}
+
+	public Color[] arrayListToColorArray(ArrayList<Color> arrayList) {
+		int size = arrayList.size();
+		Color[] array = new Color[size];
+		for (int i = 0; i < size; i++) {
+			array[i] = arrayList.get(i);
+		}
+		return array;
+	}
+
+	public ArrayList<Color> colorArrayToArrayList(Color[] array) {
+		ArrayList<Color> arrayList = new ArrayList<Color>();
+		for (Color c : array) {
+			arrayList.add(c);
+		}
+		return arrayList;
+	}
 
 	public GridPanel(int gridSize) {
 		_cells = new int[gridSize][gridSize];
@@ -19,6 +53,7 @@ public class GridPanel extends JPanel {
 
 	public void setArray(int[][] cells) {
 		_cells = cells;
+		_gridSize = _cells.length;
 	}
 
 	@Override

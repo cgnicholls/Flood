@@ -14,6 +14,7 @@ public class GraphicsBuilder {
 	private GridPanel gridPanel;
 
 	JFrame frame;
+	int xCells;
 
 	public void initializeGraphics() {
 
@@ -30,14 +31,8 @@ public class GraphicsBuilder {
 		frame.getContentPane().add(BorderLayout.CENTER, gridPanel);
 		frame.getContentPane().add(BorderLayout.NORTH, newGameButton);
 
-		int xCells = 3;
-		int[][] cells = new int[xCells][xCells];
-		for (int i = 0; i < xCells; i++) {
-			for (int j = 0; j < xCells; j++) {
-				int col = (int) (Math.random() * 6);
-				cells[i][j] = col;
-			}
-		}
+		xCells = 3;
+		int[][] cells = returnRandomizedArray(xCells);
 
 		gridPanel.setArray(cells);
 
@@ -48,9 +43,22 @@ public class GraphicsBuilder {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// New Game code here
-			JButton b = (JButton) e.getSource();
-			b.setText("New Game Code Not Yet Implemented");
+			int[][] cells = returnRandomizedArray(xCells);
+			gridPanel.setArray(cells);
+			frame.repaint();
+
 		}
+	}
+
+	public int[][] returnRandomizedArray(int xCells) {
+		int[][] cells = new int[xCells][xCells];
+		for (int i = 0; i < xCells; i++) {
+			for (int j = 0; j < xCells; j++) {
+				int col = (int) (Math.random() * 6);
+				cells[i][j] = col;
+			}
+		}
+		return cells;
 	}
 
 }
