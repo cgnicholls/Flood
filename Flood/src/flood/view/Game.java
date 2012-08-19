@@ -25,6 +25,8 @@ public class Game extends JFrame {
 				_grid.setCell(i, j, c);
 			}
 		}
+		_grid.setCell(0, 0, 0);
+		_grid.setCell(0, 1, 0);
 	}
 
 	/**
@@ -33,11 +35,21 @@ public class Game extends JFrame {
 	public void start() {
 		initialiseGrid();
 		_gridPanel.setArray(_grid.getCells());
+		run();
 	}
 
-	// public void run() {
-	// _grid.move(i, j, playerColour);
-	// renderToGridPanel(_grid);
-	// }
+	/**
+	 * The game loop takes input from each player in turn and renders the updated
+	 * Grid to the GridPanel.
+	 * 
+	 */
+	protected void run() {
+		_grid.move(0, 1, 0);
+		renderToGridPanel(_grid.getCells());
+		repaint();
+	}
 
+	protected void renderToGridPanel(final int[][] cells) {
+		_gridPanel.setArray(_grid.getCells());
+	}
 }
