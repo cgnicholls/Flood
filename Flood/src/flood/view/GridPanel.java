@@ -57,13 +57,8 @@ public class GridPanel extends JPanel {
 			for (int j = 0; j < _gridSize; j++) {
 				int cell = _cells[i][j];
 
-				Color c;
-				if (cell >= 0 && cell < colorArray.length) {
-					c = colorArray[cell];
-				} else {
-					c = Color.white;
-				}
-				g.setColor(c);
+				Color color = selectColor(cell);
+				g.setColor(color);
 
 				int xStart = _cellSize * i;
 				int yStart = _cellSize * j;
@@ -73,6 +68,18 @@ public class GridPanel extends JPanel {
 
 		}
 
+	}
+
+	public Color selectColor(int colRef) {
+		Color color;
+
+		if (colRef >= 0 && colRef < colorArray.length) {
+			color = colorArray[colRef];
+		} else {
+			color = Color.white;
+		}
+
+		return color;
 	}
 
 }
