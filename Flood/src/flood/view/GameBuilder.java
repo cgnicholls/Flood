@@ -28,7 +28,7 @@ public class GameBuilder {
 
 	private void initialiseGame(final Game game, final GridPanel gridPanel) {
 		game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		game.setSize(300, 200);
+		game.setSize(750, 750);
 
 		game.getContentPane().add(BorderLayout.CENTER, gridPanel);
 		game.setVisible(true);
